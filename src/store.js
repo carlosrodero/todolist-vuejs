@@ -12,15 +12,9 @@ export default new Vuex.Store({
       id: "",
       nome: "",
       email: "",
-      senha: "",
-      cep: "",
-      rua: "",
-      numero: "",
-      bairro: "",
-      cidade: "",
-      estado: ""
+      senha: ""
     },
-    usuario_produtos: null
+    usuario_tarefas: null
   },
   mutations: {
     UPDATE_LOGIN(state, payload) {
@@ -29,17 +23,17 @@ export default new Vuex.Store({
     UPDATE_USUARIO(state, payload) {
       state.usuario = Object.assign(state.usuario, payload);
     },
-    UPDATE_USUARIO_PRODUTOS(state, payload) {
-      state.usuario_produtos = payload;
+    UPDATE_USUARIO_TAREFAS(state, payload) {
+      state.usuario_tarefas = payload;
     },
-    ADD_USUARIO_PRODUTOS(state, payload) {
-      state.usuario_produtos.unshit(payload);
+    ADD_USUARIO_TAREFAS(state, payload) {
+      state.usuario_tarefas.unshit(payload);
     }
   },
   actions: {
-    getUsuarioProdutos(context) {
-      api.get(`/produto?usuario_id=${context.state.usuario.id}`).then(res => {
-        context.commit("UPDATE_USUARIO_PRODUTOS", res.data);
+    getUsuarioTarefas(context) {
+      api.get(`/tarefa?usuario_id=${context.state.usuario.id}`).then(res => {
+        context.commit("UPDATE_USUARIO_TAREFAS", res.data);
       });
     },
     getUsuario(context) {
@@ -67,13 +61,7 @@ export default new Vuex.Store({
         id: "",
         nome: "",
         email: "",
-        senha: "",
-        cep: "",
-        rua: "",
-        numero: "",
-        bairro: "",
-        cidade: "",
-        estado: ""
+        senha: ""
       });
       window.localStorage.removeItem("token");
       context.commit("UPDATE_LOGIN", false);

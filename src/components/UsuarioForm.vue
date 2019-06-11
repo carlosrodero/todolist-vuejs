@@ -1,10 +1,10 @@
 <template>
   <form>
-    <label for="nome">Nome</label>
+    <label for="nome">nome</label>
     <input type="text" name="nome" id="nome" v-model="nome">
-    <label for="email">Email</label>
+    <label for="email">email</label>
     <input type="email" name="email" id="email" v-model="email">
-    <label for="senha">Senha</label>
+    <label for="senha">senha</label>
     <input type="passaword" name="senha" id="senha" v-model="senha">
     <div class="button">
       <slot></slot>

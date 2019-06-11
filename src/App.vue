@@ -35,7 +35,9 @@ export default {
 
 
 <style>
-* {
+*,
+*:after,
+*:before {
   box-sizing: border-box;
 }
 body,
@@ -77,6 +79,7 @@ img {
   border: none;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   cursor: pointer;
+  outline: none;
 }
 .btn:hover {
   background: #65d;

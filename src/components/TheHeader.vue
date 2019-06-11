@@ -4,7 +4,9 @@
       <router-link to="/" class="logo">
         <img src="@/assets/logo.svg" alt="ToDoList">
       </router-link>
-      <h2 v-if="$store.state.login">olá, {{ nome }}</h2>
+      <router-link to="/usuario">
+        <h2 v-if="$store.state.login">olá, {{ nome }}</h2>
+      </router-link>
       <button v-if="$store.state.login" class="btn" @click.prevent="deslogar">sair</button>
     </nav>
   </header>
@@ -28,6 +30,9 @@ export default {
 </script>
 
 <style scoped>
+header {
+  background: rgba(255, 255, 255, 0.8);
+}
 nav {
   display: flex;
   align-items: center;
