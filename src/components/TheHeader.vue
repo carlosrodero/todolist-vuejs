@@ -1,18 +1,29 @@
 <template>
   <header>
     <nav>
-      <router-link to="/">
-        <img src="@/assets/logo.svg" alt="ToDoList" width="120px">
+      <router-link to="/" class="logo">
+        <img src="@/assets/logo.svg" alt="ToDoList">
       </router-link>
-      <router-link v-if="$store.state.login" class="btn" to="/usuario">{{ nome }}</router-link>
-      <router-link v-else class="btn" to="/login">Vender / Login</router-link>
+      <h2 v-if="$store.state.login">olá, {{ nome }}</h2>
+      <button v-if="$store.state.login" class="btn" @click.prevent="deslogar">sair</button>
     </nav>
   </header>
 </template>
 
 <script>
 export default {
-  name: "Header"
+  name: "TheHeader",
+  methods: {
+    deslogar() {
+      this.$store.dispatch("deslogarUsuario");
+      this.$router.push("/");
+    }
+  },
+  computed: {
+    nome() {
+      return this.$store.state.usuario.nome.replace(/ .*/, "");
+    }
+  }
 };
 </script>
 
@@ -28,6 +39,7 @@ nav {
   padding: 10px 0;
 }
 .logo img {
-  width: 90px;
+  width: 120px;
+  fill: #111;
 }
 </style>
