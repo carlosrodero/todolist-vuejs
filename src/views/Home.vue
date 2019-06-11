@@ -1,5 +1,7 @@
 <template>
-  <p>Home</p>
+  <section>
+    <h1>Home</h1>
+  </section>
 </template>
 
 <script>
@@ -7,3 +9,6 @@ export default {
   name: "Home"
 };
 </script>
+
+<style scoped>
+</style>
